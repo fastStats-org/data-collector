@@ -1,0 +1,10 @@
+services:
+  data-collector:
+    stdin_open: true
+    tty: true
+    build: .
+    ports:
+      - "5000:5000" # the second port must match the port from config
+    restart: always
+    volumes:
+      - ./data:/app/data
