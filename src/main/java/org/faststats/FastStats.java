@@ -16,7 +16,7 @@ public class FastStats {
             5000, "jdbc:postgresql://postgres:5432/data?user=postgres&password=postgres", "*"
     )).validate().save().getRoot();
 
-    public static final DatabaseController DATABASE = new DatabaseController();
+    public static final DatabaseController DATABASE = new DatabaseController(CONFIG.connectionString());
 
     private final Javalin javalin = Javalin.create(config -> {
         config.showJavalinBanner = false;

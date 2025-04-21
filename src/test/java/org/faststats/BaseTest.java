@@ -14,7 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @NullMarked
 public class BaseTest {
     private static final File databaseFile = new File("test.db");
-    protected DatabaseController database = new DatabaseController(databaseFile);
+    private final String url = "jdbc:postgresql://postgres:5432/data?user=postgres&password=postgres";
+    protected DatabaseController database = new DatabaseController(url);
 
     @AfterAll
     @BeforeAll
@@ -26,7 +27,7 @@ public class BaseTest {
     public void cleanupDatabase() throws SQLException {
         database.close();
         deleteDatabase();
-        database = new DatabaseController(databaseFile);
+        database = new DatabaseController(url);
     }
 
     private static void deleteDatabase() {
