@@ -1,11 +1,11 @@
 package org.faststats.controller;
 
+import org.faststats.FastStats;
 import org.faststats.model.Project;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
 class SQLController implements AutoCloseable {
     protected final Connection connection;
 
-    protected SQLController(File file) {
+    protected SQLController() {
         try {
-            this.connection = DriverManager.getConnection("jdbc:sqlite:" + file);
+            this.connection = DriverManager.getConnection(FastStats.CONFIG.connectionString());
             executeUpdate(statement("sql/table/metrics.sql"));
             executeUpdate(statement("sql/table/servers.sql"));
             executeUpdate(statement("sql/index/metrics.sql"));
