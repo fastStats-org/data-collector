@@ -13,7 +13,7 @@ import java.sql.SQLException;
 @NullMarked
 public class FastStats {
     public static final Config CONFIG = new GsonFile<>(IO.of("data", "config.json"), new Config(
-            5000, "jdbc:postgresql://postgres:5432/data?user=postgres&password=postgres", "*"
+            5000, "jdbc:postgresql://postgres/data?user=postgres&password=postgres", "*"
     )).validate().save().getRoot();
 
     public static final DatabaseController DATABASE = new DatabaseController(CONFIG.connectionString());

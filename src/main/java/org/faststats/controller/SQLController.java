@@ -3,6 +3,8 @@ package org.faststats.controller;
 import org.faststats.model.Project;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -20,16 +22,24 @@ import java.util.stream.Collectors;
 
 @NullMarked
 class SQLController implements AutoCloseable {
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
     protected final Connection connection;
 
     protected SQLController(String url) {
         try {
             this.connection = DriverManager.getConnection(url);
-            executeUpdate(statement("sql/table/metrics.sql"));
-            executeUpdate(statement("sql/table/servers.sql"));
-            executeUpdate(statement("sql/index/metrics.sql"));
+            logger.info("Successfully connected to database");
         } catch (SQLException e) {
-            throw new RuntimeException("Failed to connect or setup database", e);
+            throw new RuntimeException("Failed to connect to database", e);
+        }
+        try {
+            executeUpdate(statement("sql/table/servers.sql"));
+            executeUpdate(statement("sql/table/projects.sql")); // moved to faststats monorepo
+            executeUpdate(statement("sql/table/metrics.sql"));
+            executeUpdate(statement("sql/index/metrics.sql"));
+            logger.info("Successfully setup database");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to setup database", e);
         }
     }
 
