@@ -24,7 +24,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.13.1")
     implementation("com.google.guava:guava:33.4.8-jre")
     implementation("io.javalin:javalin:6.6.0")
-    implementation("net.thenextlvl.core:files:2.0.3")
+    implementation("net.thenextlvl.core:files:3.0.0")
     implementation("org.postgresql:postgresql:42.7.5")
 
     testImplementation(platform("org.junit:junit-bom:5.13.0-M2"))
