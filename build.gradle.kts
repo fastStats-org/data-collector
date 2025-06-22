@@ -23,7 +23,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.5.18")
     implementation("com.google.code.gson:gson:2.13.1")
     implementation("com.google.guava:guava:33.4.8-jre")
-    implementation("io.javalin:javalin:6.6.0")
+    implementation("io.javalin:javalin:6.7.0")
     implementation("net.thenextlvl.core:files:3.0.0")
     implementation("org.postgresql:postgresql:42.7.7")
 
