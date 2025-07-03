@@ -14,7 +14,7 @@ services:
       postgres:
         condition: service_healthy
   postgres:
-    image: postgres:17
+    image: postgres:18beta1
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
