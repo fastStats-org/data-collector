@@ -27,7 +27,7 @@ dependencies {
     implementation("net.thenextlvl.core:files:3.0.0")
     implementation("org.postgresql:postgresql:42.7.7")
 
-    testImplementation(platform("org.junit:junit-bom:5.13.2"))
+    testImplementation(platform("org.junit:junit-bom:6.0.0-M1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
