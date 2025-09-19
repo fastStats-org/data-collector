@@ -25,7 +25,7 @@ dependencies {
     implementation("com.google.guava:guava:33.5.0-jre")
     implementation("io.javalin:javalin:6.7.0")
     implementation("net.thenextlvl.core:files:3.0.1")
-    implementation("org.postgresql:postgresql:42.7.7")
+    implementation("org.postgresql:postgresql:42.7.8")
 
     testImplementation(platform("org.junit:junit-bom:6.0.0-RC3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
