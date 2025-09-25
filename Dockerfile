@@ -6,7 +6,7 @@ COPY --chown=gradle:gradle build.gradle.kts settings.gradle.kts /home/gradle/
 COPY --chown=gradle:gradle src /home/gradle/src/
 
 RUN gradle shadowJar
-FROM openjdk:21-slim
+FROM openjdk:25-slim
 
 RUN mkdir /app
 WORKDIR /app
