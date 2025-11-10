@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("ch.qos.logback:logback-classic:1.5.20")
+    implementation("ch.qos.logback:logback-classic:1.5.21")
     implementation("com.google.code.gson:gson:2.13.2")
     implementation("com.google.guava:guava:33.5.0-jre")
     implementation("io.javalin:javalin:6.7.0")
